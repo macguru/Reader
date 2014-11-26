@@ -116,7 +116,15 @@ NSString * const  ReaderActionSheetItemTitleUnbookmark = @"Unbookmark";
     
 	CGFloat contentWidth = (theScrollView.bounds.size.width * count);
 
+	
+	UIEdgeInsets contentInset = UIEdgeInsetsZero;
+	if (!self.canHideBars) {
+		contentInset.bottom = PAGEBAR_HEIGHT;
+		contentHeight -= PAGEBAR_HEIGHT;
+	}
+	
 	theScrollView.contentSize = CGSizeMake(contentWidth, contentHeight);
+	theScrollView.contentInset = contentInset;
 }
 
 - (void)updateScrollViewContentViews
@@ -133,6 +141,7 @@ NSString * const  ReaderActionSheetItemTitleUnbookmark = @"Unbookmark";
 	];
 
 	__block CGRect viewRect = CGRectZero; viewRect.size = theScrollView.bounds.size;
+	viewRect = UIEdgeInsetsInsetRect(viewRect, theScrollView.contentInset);
 
 	__block CGPoint contentOffset = CGPointZero; NSInteger page = [_document.pageNumber integerValue];
 
@@ -185,9 +194,10 @@ NSString * const  ReaderActionSheetItemTitleUnbookmark = @"Unbookmark";
 		NSMutableIndexSet *newPageSet = [NSMutableIndexSet new];
 
 		NSMutableDictionary *unusedViews = [contentViews mutableCopy];
-
+		
 		CGRect viewRect = CGRectZero; viewRect.size = theScrollView.bounds.size;
-
+		viewRect = UIEdgeInsetsInsetRect(viewRect, theScrollView.contentInset);
+		
 		for (NSInteger number = minValue; number <= maxValue; number++)
 		{
 			NSNumber *key = [NSNumber numberWithInteger:number]; // # key
