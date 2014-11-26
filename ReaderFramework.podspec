@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "ReaderFramework"
-  s.version      = "1.1.4"
+  s.version      = "1.1.5"
   s.summary      = "A flexible PDF reader for iOS 7"
 
   s.description  = <<-DESC
@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
                    DESC
 
   s.homepage     = "https://github.com/KiranPanesar/Reader"
-  s.license      = { :type => 'MIT', :file => 'LICENSE' }
+  s.license      = { :type => 'MIT', :file => 'LICENSE.md' }
   s.author             = { "Kiran Panesar" => "KiranSinghPanesar@googlemail.com" }
   s.social_media_url = "http://twitter.com/k_panesar"
 
