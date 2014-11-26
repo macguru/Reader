@@ -798,7 +798,7 @@ NSString * const  ReaderActionSheetItemTitleUnbookmark = @"Unbookmark";
 
 - (void)contentView:(ReaderContentView *)contentView touchesBegan:(NSSet *)touches
 {
-	if (([self.remoteNavigationController isNavigationBarHidden] == NO) || (mainPagebar.hidden == NO))
+	if (self.canHideBars && (([self.remoteNavigationController isNavigationBarHidden] == NO) || (mainPagebar.hidden == NO)))
 	{
 		if (touches.count == 1) // Single touches only
 		{

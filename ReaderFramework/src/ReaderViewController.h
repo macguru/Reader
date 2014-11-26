@@ -41,6 +41,7 @@
 
 @property (strong, nonatomic, readwrite) ReaderDocument *document;
 @property (assign, nonatomic, readwrite) NSInteger currentPage;
+@property (assign, nonatomic, readwrite) BOOL canHideBars;
 
 //
 // A UINavigationItem property to allow the PDF View Controller to set its nav
