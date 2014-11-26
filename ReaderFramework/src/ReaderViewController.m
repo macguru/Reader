@@ -343,7 +343,7 @@ NSString * const  ReaderActionSheetItemTitleUnbookmark = @"Unbookmark";
 	assert(_document != nil); // Must have a valid ReaderDocument
     [self setAutomaticallyAdjustsScrollViewInsets:NO];
     
-	self.view.backgroundColor = [UIColor colorWithRed:189/255.0f green:195/255.0f blue:199/255.0f alpha:1.0]; // Neutral gray
+	self.view.backgroundColor = [UIColor colorWithRed:125/255.0f green:126/255.0f blue:127/255.0f alpha:1.0]; // iBooks gray
 
 	theScrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds]; // UIScrollView
 	theScrollView.autoresizesSubviews = NO;

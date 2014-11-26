@@ -49,7 +49,7 @@
 
 #pragma mark Constants
 
-#define THUMB_SMALL_GAP 2
+#define THUMB_SMALL_GAP 2.5
 #define THUMB_SMALL_WIDTH 22
 #define THUMB_SMALL_HEIGHT 28
 
@@ -144,12 +144,7 @@
 		self.userInteractionEnabled = YES;
 		self.contentMode = UIViewContentModeRedraw;
 		self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
-        
-        [self.layer setShadowColor:[UIColor blackColor].CGColor];
-        [self.layer setShadowOffset:CGSizeMake(0.0f, -0.4f)];
-        [self.layer setShadowOpacity:0.3f];
-        [self.layer setShadowRadius:0.0f];
-        
+		
 		CGFloat numberY = (0.0f - (PAGE_NUMBER_HEIGHT + PAGE_NUMBER_SPACE));
 		CGFloat numberX = ((self.bounds.size.width - PAGE_NUMBER_WIDTH) / 2.0f);
 		CGRect numberRect = CGRectMake(numberX, numberY, PAGE_NUMBER_WIDTH, PAGE_NUMBER_HEIGHT);
@@ -161,7 +156,7 @@
 		pageNumberView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
 		pageNumberView.backgroundColor = [UIColor blackColor];
         pageNumberView.alpha = 0.6;
-        pageNumberView.layer.cornerRadius = 5.0f;
+        pageNumberView.layer.cornerRadius = 2.5f;
         pageNumberView.layer.masksToBounds = YES;
 
 		CGRect textRect = CGRectInset(pageNumberView.bounds, 4.0f, 2.0f); // Inset the text a bit
@@ -173,7 +168,7 @@
 		pageNumberLabel.textAlignment = NSTextAlignmentCenter;
 		pageNumberLabel.backgroundColor = [UIColor clearColor];
 		pageNumberLabel.textColor = [UIColor whiteColor];
-		pageNumberLabel.font = [UIFont systemFontOfSize:16.0f];
+		pageNumberLabel.font = [UIFont boldSystemFontOfSize:13.0f];
 		pageNumberLabel.shadowOffset = CGSizeMake(0.0f, 1.0f);
 		pageNumberLabel.shadowColor = [UIColor blackColor];
 		pageNumberLabel.adjustsFontSizeToFitWidth = YES;
@@ -559,9 +554,9 @@
 
 		self.backgroundColor = background; imageView.backgroundColor = background;
 
-		imageView.layer.borderColor = [UIColor colorWithWhite:0.4f alpha:0.6f].CGColor;
+		imageView.layer.borderColor = [UIColor colorWithWhite:0.0f alpha:0.3f].CGColor;
 
-		imageView.layer.borderWidth = 1.0f; // Give the thumb image view a border
+		imageView.layer.borderWidth = 0.5f; // Give the thumb image view a border
 	}
 
 	return self;

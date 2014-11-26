@@ -48,12 +48,6 @@
 #define ZOOM_FACTOR 2.0f
 #define ZOOM_MAXIMUM 16.0f
 
-#if (READER_SHOW_SHADOWS == TRUE) // Option
-	#define CONTENT_INSET 4.0f
-#else
-	#define CONTENT_INSET 2.0f
-#endif // end of READER_SHOW_SHADOWS Option
-
 #define PAGE_THUMB_LARGE 240
 #define PAGE_THUMB_SMALL 144
 
@@ -78,7 +72,7 @@ static inline CGFloat ZoomScaleThatFits(CGSize target, CGSize source)
 
 - (void)updateMinimumMaximumZoom
 {
-	CGRect targetRect = CGRectInset(self.bounds, CONTENT_INSET, CONTENT_INSET);
+	CGRect targetRect = self.bounds;
 
 	CGFloat zoomScale = ZoomScaleThatFits(targetRect.size, theContentView.bounds.size);
 
@@ -118,15 +112,13 @@ static inline CGFloat ZoomScaleThatFits(CGSize target, CGSize source)
 #if (READER_SHOW_SHADOWS == TRUE) // Option
 
 			theContainerView.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
-			theContainerView.layer.shadowRadius = 4.0f; theContainerView.layer.shadowOpacity = 1.0f;
+			theContainerView.layer.shadowRadius = 15.0f; theContainerView.layer.shadowOpacity = 0.1f;
 			theContainerView.layer.shadowPath = [UIBezierPath bezierPathWithRect:theContainerView.bounds].CGPath;
 
 #endif // end of READER_SHOW_SHADOWS Option
 
 			self.contentSize = theContentView.bounds.size; // Content size same as view size
-			self.contentOffset = CGPointMake((0.0f - CONTENT_INSET), (0.0f - CONTENT_INSET)); // Offset
-			self.contentInset = UIEdgeInsetsMake(CONTENT_INSET, CONTENT_INSET, CONTENT_INSET, CONTENT_INSET);
-
+			
 #if (READER_ENABLE_PREVIEW == TRUE) // Option
 
 			theThumbView = [[ReaderContentThumb alloc] initWithFrame:theContentView.bounds]; // Page thumb view
