@@ -105,6 +105,11 @@
 	[fileManager setAttributes:attributes ofItemAtPath:cachePath error:NULL]; // New modification date
 }
 
++ (void)purgeAllThumbCaches
+{
+	[NSFileManager.defaultManager removeItemAtPath:ReaderThumbCache.appCachesPath error:NULL];
+}
+
 + (void)purgeThumbCachesOlderThan:(NSTimeInterval)age
 {
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0),

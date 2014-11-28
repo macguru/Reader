@@ -37,6 +37,8 @@
 
 + (void)removeThumbCacheWithGUID:(NSString *)guid;
 
++ (void)purgeAllThumbCaches;
+
 + (void)purgeThumbCachesOlderThan:(NSTimeInterval)age;
 
 + (NSString *)thumbCachePathForGUID:(NSString *)guid;
